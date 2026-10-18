@@ -24,15 +24,13 @@ Only one project should have `featured: true` for the intended homepage layout. 
 - Put project screenshots in `public/projects/<slug>/` and update the matching paths in `data/projects.ts`. Add meaningful `alt` descriptions if you change the gallery implementation.
 - Put your PDF at `public/resume.pdf`; the hero's Download resume link targets `/resume.pdf`. The brief did not include a resume file, so add it before sharing the site.
 
-## Update your domain before deployment
+## Deploy to GitHub Pages
 
-The brief did not include a portfolio domain, so `https://example.com` is used as a visible placeholder in `app/layout.tsx`, `app/sitemap.ts`, and `app/robots.ts`. Replace it in those files with your deployed domain before sharing. The Open Graph image is `public/og-image.png` (1200 × 630); `public/og-image.svg` is its editable vector source. Update both and the metadata references if you replace it. The app favicon is `app/icon.svg`.
+The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and publishes the static export whenever a commit reaches `main`. It can also be run manually from the repository's Actions tab. The project base path is configured for this repository, and the public URL is `https://jagadeeshpodilapu.github.io/jagadeesh-podilapu-portfolio/`.
 
-## Deploy to Vercel
+In the repository's **Settings → Pages**, choose **GitHub Actions** as the build and deployment source if it is not already selected. The workflow uploads Next.js's `out/` directory as the Pages artifact. For a custom domain, configure it in GitHub Pages settings and update `site.url` in `data/site.ts`, along with the base path in `next.config.ts`.
 
-1. Push this repository to GitHub and import it in Vercel.
-2. Keep the default Next.js build command (`npm run build`) and output settings; Next.js static export writes the site to `out/`.
-3. Add your domain in Vercel, update the placeholder domain in the SEO files, and redeploy. The same `out/` directory can be published by any static host such as Netlify.
+The Open Graph image is `public/og-image.png` (1200 × 630); `public/og-image.svg` is its editable vector source. Update both and the metadata references if you replace it. The app favicon is `app/icon.svg`.
 
 ## Responsive review
 

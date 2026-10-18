@@ -9,10 +9,10 @@ const heading = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-head
 const body = Instrument_Sans({ subsets: ['latin'], variable: '--font-body' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL(site.url),
   title: `${site.name} — ${site.role}`,
   description: site.description,
-  openGraph: { title: `${site.name} — ${site.role}`, description: site.description, images: ['/og-image.png'], type: 'website' },
+  openGraph: { title: `${site.name} — ${site.role}`, description: site.description, images: [`${site.url}/og-image.png`], type: 'website' },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
